@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { Header } from './Header';
+import { LeftFilterPanel } from './LeftFilterPanel';
 
 import { theme } from '../theme';
 
@@ -18,7 +19,7 @@ const App: React.FC<{}> = () => (
       <Header />
       <BodyWrapper>
       <LeftPanelWrapper>
-        <div>Left panel</div>
+        <LeftFilterPanel />
       </LeftPanelWrapper>
       <TableWrapper>
         <div>Table</div>

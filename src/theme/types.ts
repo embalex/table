@@ -1,4 +1,11 @@
 export namespace  Theme {
+  export interface ICommon {
+    statusColor: {
+      red: string;
+      green: string;
+    };
+  }
+
   export interface IHeader {
     height: string;
   }
@@ -9,6 +16,7 @@ export namespace  Theme {
 }
 
 export interface ITheme {
+  common: Theme.ICommon;
   header: Theme.IHeader;
   leftPanel: Theme.ILeftPanel;
 };
