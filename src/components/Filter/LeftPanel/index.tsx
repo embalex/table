@@ -1,16 +1,12 @@
-import * as React from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
-import { assemblyFilter, reviewFilter } from './constants';
-import { Filter } from './Filter';
-import {
-  Header,
-  Wrapper,
-} from './styled';
+import { actions } from '../../../actions';
+import { LeftPanelView } from './LeftPanel.view';
 
-export const LeftPanel: React.FC<{}> = () => (
-  <Wrapper>
-    <Header>Filter</Header>
-    <Filter caption={assemblyFilter.caption} items={assemblyFilter.items} />
-    <Filter caption={reviewFilter.caption} items={reviewFilter.items} />
-  </Wrapper>
-);
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setAssembly: actions.filter.setAssembly(dispatch),
+  setReview: actions.filter.setReview(dispatch),
+});
+
+export const LeftPanel = connect(null, mapDispatchToProps)(LeftPanelView);

@@ -1,11 +1,11 @@
 import * as React from 'react';
+
 import { shallow } from 'enzyme';
 
-import { LeftPanel } from './index';
+import { LeftPanelView } from './LeftPanel.view';
 
 describe('Filter LeftPanel component', () => {
   it('renders without crashing', () => {
-
-    shallow(<LeftPanel />);
+    shallow(<LeftPanelView setAssembly={jest.fn()} setReview={jest.fn()}/>);
   });
 });
