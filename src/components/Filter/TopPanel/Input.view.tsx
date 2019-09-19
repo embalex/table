@@ -32,6 +32,7 @@ export const InputView: React.FC<IProps> = ({ placeholder: propsPlaceholder, onC
     <Wrapper>
       <Icon.Search />
       <InputText
+        isPlaceholder={showPlaceholder}
         onChange={onTextChange}
         onFocus={() => setInputFocus(true)}
         onBlur={() => setInputFocus(false)}
