@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  :nth-child(n) {
-    padding-right: 12px;
+  align-items: center;
+  > * {
+    margin-left: 12px;
   }
 `;
 
