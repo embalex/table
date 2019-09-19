@@ -1,8 +1,16 @@
+@font-face {
+  font-family: 'Roobert';
+  src: local('Roobert'), url(./fonts/Roobert/Roobert-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Lab Grotesque';
+  src: local('Lab Grotesque'), url(./fonts/Lab Grotesque Demo/LabGrotesque-Regular.otf) format('opentype');
+}
+
 body {
   margin: 0;
-  font-family: 'Roobert', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Roobert';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

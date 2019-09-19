@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import { Filter } from './Filter';
 import { Header } from './Header';
-import { LeftFilterPanel } from './LeftFilterPanel';
+import { TableHeader } from './TableHeader';
 
 import { theme } from '../theme';
 
@@ -18,12 +19,13 @@ const App: React.FC<{}> = () => (
     <AppWrapper>
       <Header />
       <BodyWrapper>
-      <LeftPanelWrapper>
-        <LeftFilterPanel />
-      </LeftPanelWrapper>
-      <TableWrapper>
-        <div>Table</div>
-      </TableWrapper>
+        <LeftPanelWrapper>
+          <Filter.LeftPanel />
+        </LeftPanelWrapper>
+        <TableWrapper>
+          <TableHeader />
+          <div>Table</div>
+        </TableWrapper>
       </BodyWrapper>
     </AppWrapper>
   </ThemeProvider>

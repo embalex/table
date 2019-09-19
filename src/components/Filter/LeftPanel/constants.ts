@@ -1,5 +1,5 @@
-import { AssemblyStatus } from '../../constants/assemblyStatus';
-import { ReviewStatus } from '../../constants/reviewStatus';
+import { AssemblyStatus } from '../../../constants/assemblyStatus';
+import { ReviewStatus } from '../../../constants/reviewStatus';
 import { IFilter } from './Filter/types';
 
 export const assemblyFilter: IFilter = {

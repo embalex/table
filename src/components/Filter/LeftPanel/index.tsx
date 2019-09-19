@@ -7,7 +7,7 @@ import {
   Wrapper,
 } from './styled';
 
-export const LeftFilterPanel: React.FC<{}> = () => (
+export const LeftPanel: React.FC<{}> = () => (
   <Wrapper>
     <Header>Filter</Header>
     <Filter caption={assemblyFilter.caption} items={assemblyFilter.items} />
