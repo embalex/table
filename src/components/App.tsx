@@ -1,35 +1,29 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
 import { ThemeProvider } from 'styled-components';
 
-import { Filter } from './Filter';
-import { Header } from './Header';
-import { TableHeader } from './TableHeader';
-import { Table } from './Table';
+import { actions } from '../actions';
+import { IState } from '../reducers';
+
+import { AppView } from './App.view';
 
 import { theme } from '../theme';
 
-import {
-  AppWrapper,
-  BodyWrapper,
-  LeftPanelWrapper,
-  TableWrapper,
-} from './App.styled';
+const App: React.FC<{ onLoad: () => void }> = ({ onLoad }) => {
+  React.useEffect(() => {
+    onLoad();
+  }, []);
 
-const App: React.FC<{}> = () => (
-  <ThemeProvider theme={theme}>
-    <AppWrapper>
-      <Header />
-      <BodyWrapper>
-        <LeftPanelWrapper>
-          <Filter.LeftPanel />
-        </LeftPanelWrapper>
-        <TableWrapper>
-          <TableHeader />
-          <Table />
-        </TableWrapper>
-      </BodyWrapper>
-    </AppWrapper>
-  </ThemeProvider>
-);
+  return (
+    <ThemeProvider theme={theme}>
+      <AppView onLoad={onLoad} />
+    </ThemeProvider>
+  );
+}
 
-export default App;
+const mapDispatchToProps = (dispatch: ThunkDispatch<IState, any, any>) => ({
+  onLoad: () => setTimeout(() => dispatch(actions.table.getData()), 3000),
+});
+
+export default connect(null, mapDispatchToProps)(App);

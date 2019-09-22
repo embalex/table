@@ -1,25 +1,26 @@
+import { IReviewStatus } from '../definitions/assembly';
 import { ReviewStatusColors, IStatus } from './status.type';
 
 export const ReviewStatus: IStatus[] = [{
   api: 'ANY',
   userFriendly: 'Any',
 }, {
-  api: 'DRAFT',
+  api: IReviewStatus.draft,
   userFriendly: 'Draft',
 }, {
-  api: 'SOLVED',
+  api: IReviewStatus.solved,
   userFriendly: 'Solved',
 }, {
-  api: 'SIMULATION_REQUESTED',
+  api: IReviewStatus.simulationRequested,
   userFriendly: 'Simulation requested',
 }, {
-  api: 'SIMULATION_POSITIVE',
+  api: IReviewStatus.simulationPositive,
   meta: {
     color: ReviewStatusColors.ok,
   },
   userFriendly: 'Simulation positive',
 }, {
-  api: 'SIMULATION_NEGATIVE',
+  api: IReviewStatus.simulationNegative,
   meta: {
     color: ReviewStatusColors.error,
   },

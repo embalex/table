@@ -18,6 +18,8 @@ export const IconWrapper = styled.div`
   }
 `;
 
+export const IconDivWrapper = styled.div``;
+
 export const Button = styled.div`
   background: #2B7CEE;
   border-radius: 4px;

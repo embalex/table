@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { ProcessBlock } from './ProcessBlock';
+import { ProcessBlockView } from './ProcessBlock.view';
 
-describe('ProcessBlock component', () => {
+describe('ProcessBlockView component', () => {
   it('renders without crashing', () => {
 
-    shallow(<ProcessBlock />);
+    shallow(
+      <ProcessBlockView
+        onEdit={jest.fn()}
+        onRemove={jest.fn()}
+        onViewProcess={jest.fn()}
+      />,
+    );
   });
 });

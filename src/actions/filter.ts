@@ -1,4 +1,6 @@
-import { Dispatch } from 'redux';
+import { ActionCreator } from 'redux';
+
+import { tableActions } from './table';
 
 import { Order } from '../constants/order';
 
@@ -9,9 +11,13 @@ export enum FILTER {
   SET_TEXT_QUERY = 'SET_TEXT_QUERY',
 }
 
-const createAction = <T = string>(type: FILTER) => (dispatch: Dispatch) => (payload: T): void => {
-  dispatch({ payload, type });
-};
+type IThunkAction<T> = ActionCreator<void>;
+
+const createAction = <T = string>(type: FILTER) => (payload: T): IThunkAction<void> =>
+  (dispatch) => {
+    dispatch({ payload, type });
+    dispatch(tableActions.getData());
+  };
 
 const setAssembly = createAction(FILTER.SET_ASSEMBLY);
 const setReview = createAction(FILTER.SET_REVIEW);

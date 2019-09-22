@@ -5,7 +5,7 @@ import { Order } from '../constants/order';
 
 import { FILTER } from '../actions/filter';
 
-interface IDefaultState {
+export interface IDefaultState {
   assembly: string;
   order: Order;
   review: string;
@@ -13,9 +13,9 @@ interface IDefaultState {
 }
 
 const defaultState: IDefaultState = {
-  assembly: AssemblyStatus[0].userFriendly,
+  assembly: AssemblyStatus[0].api,
   order: Order.Descent,
-  review: ReviewStatus[0].userFriendly,
+  review: ReviewStatus[0].api,
   textQuery: '',
 };
 

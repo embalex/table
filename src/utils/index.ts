@@ -40,3 +40,15 @@ export const objectToCss = (srcObject: object): string => (
   Object.entries(srcObject)
     .reduce((str, [key, value]) => `${str} ${key}: ${value};`, '')
 );
+
+export const debounce = (timeMs: number, func: Function) => {
+  let timer: any = null;
+
+  return (...rest: any) => {
+    if (timer) {
+      clearInterval(timer);
+    }
+
+    timer = setTimeout(() => func(...rest), timeMs);
+  };
+};

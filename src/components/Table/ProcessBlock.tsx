@@ -1,29 +1,28 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
 
-import { Icon } from '../../icons';
+import { IState } from '../../reducers';
+import { actions } from '../../actions';
 
-import {
-  Button,
-  ButtonTextWrapper,
-  IconWrapper,
-  Wrapper,
-} from './ProcessBlock.styled';
+import { ProcessBlockView } from './ProcessBlock.view';
 
-interface IProps {
+interface IOwnProps {
   id: string;
 }
 
-export const ProcessBlock: React.FC<IProps> = ({ id }) => (
-  <Wrapper>
-    <IconWrapper>
-      <Icon.Edit />
-      <Icon.Remove />
-    </IconWrapper>
-    <Button>
-      <ButtonTextWrapper>
-        View process
-      </ButtonTextWrapper>
-      <Icon.Arrow />
-    </Button>
-  </Wrapper>
-);
+interface IConnectedProps {
+  onEdit(): void;
+  onRemove(): void;
+  onViewProcess(): void;
+}
+
+const mapDispatchToProps =
+  (dispatch: ThunkDispatch<IState, any, any>, { id }: IOwnProps): IConnectedProps => ({
+    onEdit: () => dispatch(actions.table.editItem(id)),
+    onRemove: () => dispatch(actions.table.removeItem(id)),
+    onViewProcess: () => dispatch(actions.table.viewProcess(id)),
+  });
+
+export const ProcessBlock: React.ComponentType<IOwnProps> =
+  connect(null, mapDispatchToProps)(ProcessBlockView);

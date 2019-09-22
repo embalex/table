@@ -1,21 +1,28 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
-import { Row } from './Row';
-
-import { srcData } from '../../mocks/srcData';
 import { AssemblyStatus } from '../../constants/assemblyStatus';
+import { IAssembly } from '../../definitions/assembly';
+import { IState } from '../../reducers';
 import { ReviewStatus } from '../../constants/reviewStatus';
 
 import * as utils from '../../utils';
 
+import { Row } from './Row';
+
 import { Wrapper } from './styled';
 
-export const Table: React.FC<{}> = () => {
-  const rows = [];
-  for (let i = 0; i < 20; i += 1) {
-    const { _id, title, assemblyStatus, reviewStatus, updated } = srcData[i];
+interface IConnectedProps {
+  data: IAssembly[];
+}
 
-    rows.push(
+const _Table: React.FC<IConnectedProps> = ({ data }) => {
+  React.useEffect(() => {
+
+  }, []);
+
+  const rows = data.map(
+    ({ _id, title, assemblyStatus, reviewStatus, updated }) => (
       <Row
         key={_id}
         id={_id}
@@ -35,8 +42,8 @@ export const Table: React.FC<{}> = () => {
           }],
         }}
       />
-    );
-  };
+    ),
+  );
 
   return (
     <Wrapper>
@@ -45,3 +52,9 @@ export const Table: React.FC<{}> = () => {
   );
 
 }
+
+const mapStateToProps = (state: IState): IConnectedProps => ({
+  data: state.data,
+});
+
+export const Table = connect(mapStateToProps)(_Table);

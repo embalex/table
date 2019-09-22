@@ -1,23 +1,17 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
-import { Filter } from '../Filter';
+import { IState } from '../../reducers';
 
-import {
-  Wrapper,
-  Header,
-  HeaderText,
-  HeaderBadge,
-} from './styled';
+import { TableHeaderView } from './TableHeader.view';
 
-export const TableHeader: React.FC<{}> = () => {
-
-  return (
-    <Wrapper>
-      <Header>
-        <HeaderText>Assembly processes</HeaderText>
-        <HeaderBadge>220</HeaderBadge>
-      </Header>
-      <Filter.TopPanel />
-    </Wrapper>
-  );
+interface IConnectedProps {
+  numbers: number;
 }
+
+const mapStateToProps = (state: IState): IConnectedProps => ({
+  numbers: state.data.length,
+});
+
+export const TableHeader: React.ComponentType<{}> =
+  connect(mapStateToProps)(TableHeaderView);
