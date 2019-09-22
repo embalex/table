@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { AppView } from './App.view';
+import { Header } from './index';
 
-describe('App component', () => {
+describe ('Header component', () => {
   it('renders without crashing', () => {
 
-    shallow(<AppView onLoad={jest.fn()} />);
+    shallow(<Header />);
   });
 });

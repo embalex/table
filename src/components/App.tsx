@@ -1,11 +1,29 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
+import { ThemeProvider } from 'styled-components';
 
-import { AppWrapper } from './App.styled';
+import { actions } from '../actions';
+import { IState } from '../reducers';
 
-const App: React.FC<{}> = () => (
-      <AppWrapper>
-        TEST
-      </AppWrapper>
-);
+import { AppView } from './App.view';
 
-export default App;
+import { theme } from '../theme';
+
+const App: React.FC<{ onLoad: () => void }> = ({ onLoad }) => {
+  React.useEffect(() => {
+    onLoad();
+  }, [onLoad]);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <AppView onLoad={onLoad} />
+    </ThemeProvider>
+  );
+}
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<IState, any, any>) => ({
+  onLoad: () => setTimeout(() => dispatch(actions.table.getData()), 3000),
+});
+
+export default connect(null, mapDispatchToProps)(App);

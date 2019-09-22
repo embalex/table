@@ -1,4 +1,4 @@
-[
+export const srcData = [
   {
     "_id": "5d4193af0717dd5261aac038",
     "img": "http://placehold.it/160x100",
