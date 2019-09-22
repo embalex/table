@@ -9,8 +9,8 @@ export const AppWrapper = styled.div`
 export const BodyWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: calc(100vh - ${({ theme }: IThemeWithProps) => theme.header.height});
   padding-top: 24px;
+  height: calc(100vh - ${({ theme }: IThemeWithProps) => theme.header.height} - 24px);
 `;
 
 export const LeftPanelWrapper = styled.div`
@@ -22,5 +22,7 @@ export const LeftPanelWrapper = styled.div`
 export const TableWrapper = styled.div`
   width: 100%;
   padding-right: 48px;
-  padding-left: 8px; 
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
 `;

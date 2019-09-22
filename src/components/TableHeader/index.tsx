@@ -10,7 +10,7 @@ interface IConnectedProps {
 }
 
 const mapStateToProps = (state: IState): IConnectedProps => ({
-  numbers: state.data.length,
+  numbers: state.data.total,
 });
 
 export const TableHeader: React.ComponentType<{}> =

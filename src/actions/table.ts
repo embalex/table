@@ -11,11 +11,19 @@ export enum TABLE {
 
 type IThunkAction<T> = ActionCreator<void>;
 
-const receiveData = async (filter: object, onReceive: (value: IAssembly[]) => void): Promise<void> => {
+const receiveData = async (
+  filter: object,
+  onReceive: (value: IAssembly[], total: number) => void,
+): Promise<void> => {
   let tableData: IAssembly[] = [];
+  let total: number;
 
   try {
-    tableData = await axios.get('/api/assembly', { params: filter });
+    const response: { data: IAssembly[]; total: number } =
+      await axios.get('/api/assembly', { params: filter });
+
+    tableData = response.data;
+    total = response.total;
   } catch (e) {
     console.log('Error! -> ', e);
     console.log('Add mocks data! ');
@@ -23,9 +31,11 @@ const receiveData = async (filter: object, onReceive: (value: IAssembly[]) => vo
     for (let i = 0; i < 10; i += 1) {
       tableData.push(srcData[i] as IAssembly);
     }
+
+    total = 123;
   }
 
-  onReceive(tableData);
+  onReceive(tableData, total);
 };
 
 const debouncedReceiver = debounce(500, receiveData);
@@ -36,7 +46,7 @@ const getData = (): IThunkAction<void> =>
 
     await debouncedReceiver(
       filter,
-      (value: IAssembly[]) => dispatch({ type: TABLE.GET_DATA, payload: value }),
+      (data: IAssembly[], total: number): void => dispatch({ type: TABLE.GET_DATA, payload: { data, total } }),
     );
   };
 

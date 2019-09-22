@@ -5,11 +5,15 @@ import { Order } from '../constants/order';
 
 import { FILTER } from '../actions/filter';
 
+const ITEMS_PER_PAGE = 10;
+
 export interface IDefaultState {
   assembly: string;
   order: Order;
   review: string;
   textQuery: string;
+  from: number;
+  to: number;
 }
 
 const defaultState: IDefaultState = {
@@ -17,6 +21,8 @@ const defaultState: IDefaultState = {
   order: Order.Descent,
   review: ReviewStatus[0].api,
   textQuery: '',
+  from: 0,
+  to: ITEMS_PER_PAGE,
 };
 
 interface IAction extends Action<FILTER> { payload?: string; }
@@ -36,6 +42,14 @@ export const filterReducer: Reducer<IDefaultState, IAction> = (state = defaultSt
       break;
     case FILTER.SET_TEXT_QUERY:
       newState.textQuery = action.payload || defaultState.textQuery;
+      break;
+    case FILTER.DEC_START_ITEM:
+      newState.from = state.from < ITEMS_PER_PAGE ? 0 : state.from - ITEMS_PER_PAGE;
+      newState.to = newState.from + ITEMS_PER_PAGE;
+      break;
+    case FILTER.INC_START_ITEM:
+      newState.from = state.from + ITEMS_PER_PAGE;
+      newState.to = newState.from + ITEMS_PER_PAGE;
       break;
   }
 
