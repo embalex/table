@@ -1,8 +1,12 @@
 export namespace  Theme {
   export interface ICommon {
+    reviewColor: {
+      error: string;
+      ok: string;
+    };
     statusColor: {
-      red: string;
-      green: string;
+      inProcess: string;
+      finished: string;
     };
   }
 

@@ -21,4 +21,6 @@ export const LeftPanelWrapper = styled.div`
 
 export const TableWrapper = styled.div`
   width: 100%;
+  padding-right: 48px;
+  padding-left: 8px; 
 `;

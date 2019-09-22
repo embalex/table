@@ -1,4 +1,4 @@
-import { AssemblyStatusColors, IStatus } from './status.type';
+import { ReviewStatusColors, IStatus } from './status.type';
 
 export const ReviewStatus: IStatus[] = [{
   api: 'ANY',
@@ -15,13 +15,13 @@ export const ReviewStatus: IStatus[] = [{
 }, {
   api: 'SIMULATION_POSITIVE',
   meta: {
-    color: AssemblyStatusColors.green,
+    color: ReviewStatusColors.ok,
   },
   userFriendly: 'Simulation positive',
 }, {
   api: 'SIMULATION_NEGATIVE',
   meta: {
-    color: AssemblyStatusColors.red,
+    color: ReviewStatusColors.error,
   },
   userFriendly: 'Simulation negative',
 }];

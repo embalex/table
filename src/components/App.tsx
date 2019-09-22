@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { Filter } from './Filter';
 import { Header } from './Header';
 import { TableHeader } from './TableHeader';
+import { Table } from './Table';
 
 import { theme } from '../theme';
 
@@ -24,7 +25,7 @@ const App: React.FC<{}> = () => (
         </LeftPanelWrapper>
         <TableWrapper>
           <TableHeader />
-          <div>Table</div>
+          <Table />
         </TableWrapper>
       </BodyWrapper>
     </AppWrapper>

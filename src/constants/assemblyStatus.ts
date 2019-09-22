@@ -1,4 +1,4 @@
-import { IStatus } from './status.type';
+import { AssemblyStatusColors, IStatus } from './status.type';
 
 export const AssemblyStatus: IStatus[] = [{
   api: 'ANY',
@@ -6,7 +6,13 @@ export const AssemblyStatus: IStatus[] = [{
 }, {
   api: 'IN_REVIEW',
   userFriendly: 'In review',
+  meta: {
+    background: AssemblyStatusColors.inReview,
+  },
 }, {
   api: 'REVIEW_FINISHED',
-  userFriendly: 'Review finished',
+  userFriendly: 'Finished',
+  meta: {
+    background: AssemblyStatusColors.finished,
+  },
 }];

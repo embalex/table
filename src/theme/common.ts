@@ -1,8 +1,12 @@
 import { Theme } from './types';
 
 export const common: Theme.ICommon = {
+  reviewColor: {
+    error: '#E91630',
+    ok: '#34C86E',
+  },
   statusColor: {
-    green: '#34C86E',
-    red: '#E91630',
+    finished: '#FFFFFF',
+    inProcess: '#FFC800',
   },
 };
