@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ActionCreator, Dispatch } from 'redux';
+import { ActionCreator } from 'redux';
 
 import { IAssembly } from '../definitions/assembly';
 import { srcData } from '../mocks/srcData';

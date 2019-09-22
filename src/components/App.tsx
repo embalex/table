@@ -13,7 +13,7 @@ import { theme } from '../theme';
 const App: React.FC<{ onLoad: () => void }> = ({ onLoad }) => {
   React.useEffect(() => {
     onLoad();
-  }, []);
+  }, [onLoad]);
 
   return (
     <ThemeProvider theme={theme}>

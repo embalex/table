@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 
-import { IAssembly } from '../definitions/assembly';
 
 import { filterReducer, IDefaultState as IFilter } from './filter';
 import { tableReducer, IDefaultState as ITable } from './table';

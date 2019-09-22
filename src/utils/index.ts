@@ -10,16 +10,6 @@ export const apiToUserFriendly = (srcObject: IStatus[], api: string): string => 
   return filteredObject[0].userFriendly;
 };
 
-const userFriendlyToApi = (srcObject: IStatus[], userFriendly: string): string => {
-  const filteredObject =
-    srcObject.filter(({ userFriendly: srcUserFriendly }) => userFriendly === srcUserFriendly);
-
-  if (!filteredObject.length) { return 'Unknown value'; }
-  if (filteredObject.length > 1) { return 'Multiple value'; }
-
-  return filteredObject[0].api;
-};
-
 export const getMeta = (srcObject: IStatus[], api: string): object => {
   const filteredObject =
     srcObject.filter(({ api: srcApi }) => api === srcApi);
