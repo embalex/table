@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Roobert';
+  src: local('Roobert'), url(static/media/Roobert-Regular.95a64198.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Lab Grotesque';
+  src: local('Lab Grotesque'), url(static/media/LabGrotesque-Regular.0a78fba7.otf) format('opentype');
+}
+
+body {
+  margin: 0;
+  font-family: 'Roobert';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+  border: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+/*# sourceMappingURL=main.css.map*/

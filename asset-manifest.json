@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/main.css",
+    "main.js": "/main.6757a5aa75e07bb60471.bundle.js",
+    "main.css.map": "/main.css.map",
+    "main.js.map": "/main.6757a5aa75e07bb60471.bundle.js.map",
+    "runtime~main.js": "/runtime~main.6757a5aa75e07bb60471.bundle.js",
+    "runtime~main.js.map": "/runtime~main.6757a5aa75e07bb60471.bundle.js.map",
+    "vendors~main.js": "/vendors~main.6757a5aa75e07bb60471.bundle.js",
+    "vendors~main.js.map": "/vendors~main.6757a5aa75e07bb60471.bundle.js.map",
+    "iframe.html": "/iframe.html",
+    "precache-manifest.8c52e24a8d4b048ab66f2b1c965692ef.js": "/precache-manifest.8c52e24a8d4b048ab66f2b1c965692ef.js",
+    "service-worker.js": "/service-worker.js",
+    "static/media/index.css": "/static/media/Roobert-Regular.95a64198.otf"
+  }
+}
