@@ -8,7 +8,7 @@
  - Axios
  - Storybook
 
-SPA is published at https://embalex.github.io/table
+SPA is published at https://embalex.github.io/traTestTask
 
 Request are implemented also (filters, queryString skinny infinite scroll etc...).
 
